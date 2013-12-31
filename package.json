@@ -1,0 +1,18 @@
+{
+  "name": "tbs-battle-planner",
+  "version": "0.0.0",
+  "description": "react version of the tbs-battleplanner",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "davemo",
+  "license": "MIT",
+  "dependencies": {
+    "grunt": "~0.4.2",
+    "grunt-browserify": "~1.3.0",
+    "browserify": "~3.18.0",
+    "coffeeify": "~0.5.2",
+    "reactify": "~0.5.0"
+  }
+}
