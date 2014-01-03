@@ -1,6 +1,5 @@
 `/** @jsx React.DOM */`
 
-converter   = new Showdown.converter
 CommentBox  = require("./components/comment_box.js")
 
 module.exports =

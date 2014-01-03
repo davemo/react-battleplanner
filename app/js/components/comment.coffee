@@ -1,5 +1,7 @@
 `/** @jsx React.DOM */`
 
+converter = new Showdown.converter
+
 Comment = React.createClass
   render: ->
     rawMarkup = converter.makeHtml @props.children.toString()
