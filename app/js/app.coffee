@@ -1,60 +1,7 @@
 `/** @jsx React.DOM */`
 
-converter = new Showdown.converter
-Comment = require("./components/comment.js")
-
-CommentBox = React.createClass
-  loadCommentsFromServer: ->
-    $.ajax
-      url: @props.url
-      success: (data) =>
-        @setState {data}
-
-  handleCommentSubmit: (comment) ->
-    comments = @state.data
-    comments.push comment
-    $.ajax
-      url: @props.url
-      type: 'POST'
-      data: comment
-      success: (data) =>
-        @setState {data}
-
-  getInitialState: ->
-    {data: []}
-
-  componentWillMount: ->
-    @loadCommentsFromServer()
-    setInterval(@loadCommentsFromServer, @props.pollInterval)
-
-  render: ->
-    `<div className="commentBox">
-      <h1>Comments</h1>
-      <CommentList data={this.state.data}></CommentList>
-      <CommentForm onCommentSubmit={this.handleCommentSubmit}></CommentForm>
-     </div>`
-
-CommentList = React.createClass
-  render: ->
-    commentNodes = @props.data.map (comment) ->
-      `<Comment author={comment.author}>{comment.text}</Comment>`
-    `<div className="commentList">{commentNodes}</div>`
-
-CommentForm = React.createClass
-  handleSubmit: ->
-    author = @refs.author.getDOMNode().value.trim()
-    text   = @refs.text.getDOMNode().value.trim()
-    @props.onCommentSubmit {author, text}
-    @refs.author.getDOMNode().value = ""
-    @refs.text.getDOMNode().value   = ""
-    false
-
-  render: ->
-    `<form className="commentForm" onSubmit={this.handleSubmit}>
-      <input type="text" placeholder="Your name" ref="author" />
-      <input type="text" placeholder="Say something..." ref="text" />
-      <input type="submit" value="Post" />
-    </form>`
+converter   = new Showdown.converter
+CommentBox  = require("./components/comment_box.js")
 
 module.exports =
   start: ->
