@@ -25,15 +25,33 @@ gulp.task 'less', ->
     .pipe(concat('app.css'))
     .pipe(gulp.dest('./build/'))
 
-gulp.task 'dev-server', ['browserify'], ->
+gulp.task 'copy:page', ->
+  gulp.src('./app/pages/index.html')
+    .pipe(gulp.dest('./build'))
+
+gulp.task 'copy:vendor', ->
+  gulp.src('./vendor/js/**/*.js')
+    .pipe(concat('vendor.js'))
+    .pipe(gulp.dest('./build'))
+
+gulp.task 'copy', ->
+  gulp.run 'copy:page', 'copy:vendor'
+
+gulp.task 'dev-server', ['browserify', 'copy:page'], ->
   server.listen(3000)
   gutil.log 'server listening on port 3000'
 
 gulp.task 'default', ->
-  gulp.run 'coffee-reactify', 'browserify', 'less', 'dev-server'
+  gulp.run 'coffee-reactify', 'browserify', 'less', 'copy', 'dev-server'
 
   gulp.watch './app/js/**/*.coffee', ->
     gulp.run 'coffee-reactify', 'browserify'
 
   gulp.watch './app/stylesheets/**/*.less', ->
     gulp.run 'less'
+
+  gulp.watch './app/pages/**/*.html', ->
+    gulp.run 'copy:page'
+
+  gulp.watch './vendor/js/**/*.js', ->
+    gulp.run 'copy:vendor'

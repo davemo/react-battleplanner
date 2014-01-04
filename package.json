@@ -13,14 +13,13 @@
     "gulp-coffee": "~1.2.4",
     "gulp-util": "~2.2.5",
     "gulp-browserify": "~0.2.3",
-    "coffeeify": "~0.5.2",
-    "coffee-script": "~1.6.3",
-    "reactify": "~0.5.0",
     "gulp-react": "~0.1.0",
     "gulp-concat": "~2.1.6",
+    "gulp-less": "~1.1.1",
+    "coffee-script": "~1.6.3",
+    "reactify": "~0.5.0",
     "envify": "~0.2.0",
     "react": "~0.8.0",
-    "express": "~3.4.7",
-    "gulp-less": "~1.1.1"
+    "express": "~3.4.7"
   }
 }
