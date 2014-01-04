@@ -2,15 +2,46 @@
 <html>
   <head>
     <meta http-equiv='Content-type' content='text/html; charset=utf-8'>
-    <title>Basic Example with external JSX</title>
-    <link rel="stylesheet" href="app/css/base.css" />
+    <title>TBS Battle Planner</title>
+    <link href='http://fonts.googleapis.com/css?family=Skranji' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="build/app.css" />
   </head>
   <body>
-    <div id="container">
+    <div id="header">
+      <div class="wrapper">
+        <h1>The Banner Saga : Factions | Battle Planner</h1>
+      </div>
     </div>
+
+    <div id="container"></div>
+
+    <div id="loadout">
+      <div class="wrapper">
+        <ul id="selected-characters"></ul>
+      </div>
+    </div>
+
+    <div id="character-selector">
+      <div class="wrapper">
+        <div id="unit-groupings"></div>
+      </div>
+    </div>
+
+    <div id="stat-editor"></div>
+
+    <div id="credits">
+      <div class="wrapper">
+        built by <a href="http://www.twitter.com/@dmosher">@dmosher</a>
+        <span class="build">
+          Calculator Release <span class="version">QQ</span> based on <a href="http://stoicstudio.com/forum/the-banner-saga-factions.php">The Banner Saga: Factions</a> build <span class="version">PP</span>
+        </span>
+      </div>
+    </div>
+
     <script src="vendor/js/showdown.js"></script>
     <script src="vendor/js/react.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
-    <script src="build/browserify-bundle.js"></script>
+    <script src="build/app.js"></script>
   </body>
 </html>
