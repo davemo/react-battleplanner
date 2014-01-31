@@ -20,6 +20,7 @@
     "gulp-concat": "~2.1.7",
     "envify": "^0.2.0",
     "react": "^0.8.0",
-    "express": "^3.4.7"
+    "express": "^3.4.7",
+    "gulp-clean": "~0.2.4"
   }
 }

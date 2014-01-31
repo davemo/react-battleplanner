@@ -4,7 +4,12 @@ log        = require('gulp-util').log
 browserify = require('gulp-browserify')
 react      = require('gulp-react')
 concat     = require('gulp-concat')
+clean      = require('gulp-clean')
 server     = require('./server.coffee')
+
+gulp.task 'clean', ->
+  gulp.src './build/**/*'
+    .pipe clean()
 
 gulp.task 'vendor-scripts', ->
   gulp.src './vendor/js/**/*.js'
