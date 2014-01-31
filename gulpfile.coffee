@@ -5,11 +5,17 @@ browserify = require('gulp-browserify')
 react      = require('gulp-react')
 concat     = require('gulp-concat')
 clean      = require('gulp-clean')
+less       = require('gulp-less')
 server     = require('./server.coffee')
 
 gulp.task 'clean', ->
   gulp.src './build/**/*'
     .pipe clean()
+
+gulp.task 'styles', ->
+  gulp.src './app/less/style.less'
+    .pipe less({ieCompat: false})
+    .pipe gulp.dest('./build/css/')
 
 gulp.task 'vendor-scripts', ->
   gulp.src './vendor/js/**/*.js'
@@ -35,6 +41,6 @@ gulp.task 'dev-server', ->
 gulp.task 'watch', ->
   gulp.watch './app/js/**/*.coffee', ['coffee-reactify', 'browserify']
 
-gulp.task 'default', ['vendor-scripts', 'coffee-reactify', 'browserify', 'dev-server', 'watch']
+gulp.task 'default', ['styles', 'vendor-scripts', 'coffee-reactify', 'browserify', 'dev-server', 'watch']
 
 
