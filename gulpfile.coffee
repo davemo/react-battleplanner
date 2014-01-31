@@ -22,8 +22,9 @@ gulp.task 'dev-server', ['browserify'], ->
   server.listen(3000)
   gutil.log 'server listening on port 3000'
 
-gulp.task 'default', ->
-  gulp.run 'coffee-reactify', 'browserify', 'dev-server'
+gulp.task 'watch', ->
+  gulp.watch './app/js/**/*.coffee', ['coffee-reactify', 'browserify']
 
-  gulp.watch './app/js/**/*.coffee', ->
-    gulp.run 'coffee-reactify', 'browserify'
+gulp.task 'default', ['dev-server', 'watch']
+
+
