@@ -3,11 +3,27 @@
   <head>
     <meta http-equiv='Content-type' content='text/html; charset=utf-8'>
     <title>Basic Example with external JSX</title>
-    <link rel="stylesheet" href="app/css/base.css" />
+    <link href='http://fonts.googleapis.com/css?family=Skranji' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="build/css/style.css" />
   </head>
   <body>
-    <div id="container">
+    <div id="header">
+      <div class="wrapper">
+        <h1>The Banner Saga : Factions | Battle Planner</h1>
+      </div>
     </div>
+
+    <div id="character-selector"></div>
+
+    <div id="credits">
+      <div class="wrapper">
+        built by <a href="http://www.twitter.com/@dmosher">@dmosher</a>
+        <span class="build">
+          Calculator Release <span class="version">version</span> based on <a href="http://stoicstudio.com/forum/the-banner-saga-factions.php">The Banner Saga: Factions</a> build <span class="version">version</span>
+        </span>
+      </div>
+    </div>
+
     <script src="build/vendor-bundle.js"></script>
     <script src="build/browserify-bundle.js"></script>
   </body>
