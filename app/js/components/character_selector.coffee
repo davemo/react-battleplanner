@@ -1,11 +1,11 @@
 `/** @jsx React.DOM */`
 
-units = require("../data/builds_default_units.js")()
+defaultUnits = require("../data/builds_default_units.js").defaultUnits()
 
 CharacterSelector = React.createClass
 
   getInitialState: ->
-    {data: _(_(units).groupBy("type")).tap (grouped) -> delete grouped.base}
+    {data: _(_(defaultUnits).groupBy("type")).tap (grouped) -> delete grouped.base}
 
   render: ->
     characterGroups = _(@state.data).map (characters, type) ->

@@ -7,7 +7,17 @@ unitStatMapper = (raw_stats_array) ->
     current: min_max[0]
     name: STATS[i]
 
-module.exports = ->
+defaultUnit = ->
+  name: ""
+  type: ""
+  stats: undefined
+  allocated_stat_points: 0
+  max_stat_points: 11
+
+exports.defaultLoadoutUnits = ->
+  _(_.range(0,6)).map(defaultUnit)
+
+exports.defaultUnits = ->
   #arm    str    wil    exr    brk (min,max)
   [
     {
