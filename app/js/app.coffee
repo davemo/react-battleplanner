@@ -2,8 +2,10 @@
 
 Loadout = require("./components/loadout.js")
 CharacterSelector = require("./components/character_selector.js")
+StatEditor = require("./components/stat_editor.js")
 
 module.exports =
   start: ->
     React.renderComponent(`<Loadout />`, $("#loadout")[0])
     React.renderComponent(`<CharacterSelector />`, $("#character-selector")[0])
+    React.renderComponent(`<StatEditor />`, $("#stat-editor")[0])
