@@ -28,7 +28,7 @@ gulp.task 'coffee-reactify', ->
     .pipe react()
     .pipe gulp.dest('./build/')
 
-gulp.task 'browserify', ->
+gulp.task 'browserify', ['coffee-reactify'], ->
   gulp.src './build/startup.js'
     .pipe browserify({debug: true}).on('error', log)
     .pipe concat('browserify-bundle.js')
